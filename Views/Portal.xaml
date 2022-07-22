@@ -41,13 +41,6 @@
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
 		
-			<TextBlock Grid.Row="0"
-					   Grid.ColumnSpan="2"
-					   Margin="0,0,0,10"
-					   Style="{DynamicResource HeaderTextStyleKey}"
-					   Text="艦これのマスター データを閲覧します。" />
-
-			<!-- <metro2:CallMethodButton>Test</metro2:CallMethodButton> -->
 			<TextBlock x:Name="Area" 
 					   Grid.Row="1"
 					   Margin="0,0,0,5" Width="{Binding Width, ElementName=MapImage}"

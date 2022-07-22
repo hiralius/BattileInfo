@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{08226BB3-A7A0-49E3-84DE-ED5B7A7D293E}</ProjectGuid>
+    <ProjectGuid>{3B7DA7FC-8B23-461C-A6F3-853D05C67D31}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Grabacr07.KanColleViewer.Plugins</RootNamespace>
-    <AssemblyName>ExPlugin.MasterDataViewer</AssemblyName>
+    <AssemblyName>BattleInfo</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -45,16 +45,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Livet, Version=3.2.3.2, Culture=neutral, PublicKeyToken=b0b1d3f711ef38cb, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\LivetCask.3.2.3.2\lib\net452\Livet.dll</HintPath>
+      <HintPath>..\KanColleViewer\source\packages\LivetCask.3.2.3.2\lib\net452\Livet.dll</HintPath>
     </Reference>
     <Reference Include="Livet.Behaviors, Version=3.2.3.2, Culture=neutral, PublicKeyToken=b0b1d3f711ef38cb, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\LivetCask.Behaviors.3.2.3.2\lib\net452\Livet.Behaviors.dll</HintPath>
+      <HintPath>..\KanColleViewer\source\packages\LivetCask.Behaviors.3.2.3.2\lib\net452\Livet.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="Livet.Collections, Version=3.2.3.2, Culture=neutral, PublicKeyToken=b0b1d3f711ef38cb, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\LivetCask.Collections.3.2.3.2\lib\net452\Livet.Collections.dll</HintPath>
+      <HintPath>..\KanColleViewer\source\packages\LivetCask.Collections.3.2.3.2\lib\net452\Livet.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Livet.Converters, Version=3.2.3.2, Culture=neutral, PublicKeyToken=b0b1d3f711ef38cb, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\LivetCask.Converters.3.2.3.2\lib\net452\Livet.Converters.dll</HintPath>
+      <HintPath>..\KanColleViewer\source\packages\LivetCask.Converters.3.2.3.2\lib\net452\Livet.Converters.dll</HintPath>
     </Reference>
     <Reference Include="Livet.Core, Version=3.2.3.2, Culture=neutral, PublicKeyToken=b0b1d3f711ef38cb, processorArchitecture=MSIL">
       <HintPath>..\..\packages\LivetCask.Core.3.2.3.2\lib\net452\Livet.Core.dll</HintPath>
@@ -106,8 +106,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BattleInfo.cs" />
     <Compile Include="ConfigFile.cs" />
-    <Compile Include="MasterDataViewer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -125,9 +125,6 @@
     <Compile Include="Views\Portal.xaml.cs">
       <DependentUpon>Portal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Settings.xaml.cs">
-      <DependentUpon>Settings.xaml</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -141,45 +138,41 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Analyzers\KanColleViewer.PluginAnalyzer\KanColleViewer.PluginAnalyzer.csproj">
+    <ProjectReference Include="..\KanColleViewer\source\Analyzers\KanColleViewer.PluginAnalyzer\KanColleViewer.PluginAnalyzer.csproj">
       <Project>{b84f1251-4042-4adc-955e-415469947538}</Project>
       <Name>KanColleViewer.PluginAnalyzer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Grabacr07.KanColleViewer.Composition\KanColleViewer.Composition.csproj">
+    <ProjectReference Include="..\KanColleViewer\source\Grabacr07.KanColleViewer.Composition\KanColleViewer.Composition.csproj">
       <Project>{cc139e98-d847-41da-b20f-8aca4564f375}</Project>
       <Name>KanColleViewer.Composition</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Grabacr07.KanColleViewer.Controls\KanColleViewer.Controls.csproj">
+    <ProjectReference Include="..\KanColleViewer\source\Grabacr07.KanColleViewer.Controls\KanColleViewer.Controls.csproj">
       <Project>{978239d0-3129-4c54-aac6-493f0de48bf5}</Project>
       <Name>KanColleViewer.Controls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Grabacr07.KanColleWrapper\KanColleWrapper.csproj">
+    <ProjectReference Include="..\KanColleViewer\source\Grabacr07.KanColleWrapper\KanColleWrapper.csproj">
       <Project>{0bc8cf79-76d9-46ad-867f-fec6c6ad4594}</Project>
       <Name>KanColleWrapper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\MetroRadiance\source\MetroRadiance.Chrome\MetroRadiance.Chrome.csproj">
+    <ProjectReference Include="..\KanColleViewer\source\MetroRadiance\source\MetroRadiance.Chrome\MetroRadiance.Chrome.csproj">
       <Project>{21b4ad15-d9fa-4873-bfad-1eeefbc6c264}</Project>
       <Name>MetroRadiance.Chrome</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\MetroRadiance\source\MetroRadiance.Core\MetroRadiance.Core.csproj">
+    <ProjectReference Include="..\KanColleViewer\source\MetroRadiance\source\MetroRadiance.Core\MetroRadiance.Core.csproj">
       <Project>{a6b0a741-5be0-479d-b813-e65672350057}</Project>
       <Name>MetroRadiance.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\MetroRadiance\source\MetroRadiance\MetroRadiance.csproj">
+    <ProjectReference Include="..\KanColleViewer\source\MetroRadiance\source\MetroRadiance\MetroRadiance.csproj">
       <Project>{0af0b9ff-d981-4d0f-a41f-c3ab6fe2f16d}</Project>
       <Name>MetroRadiance</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\MetroTrilithon\source\MetroTrilithon.Desktop\MetroTrilithon.Desktop.csproj">
+    <ProjectReference Include="..\KanColleViewer\source\MetroTrilithon\source\MetroTrilithon.Desktop\MetroTrilithon.Desktop.csproj">
       <Project>{4e2eb2e0-e5fe-4feb-a3e5-5f2f05cd1a67}</Project>
       <Name>MetroTrilithon.Desktop</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\Portal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

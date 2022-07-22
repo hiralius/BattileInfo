@@ -12,21 +12,18 @@ namespace Grabacr07.KanColleViewer.Plugins
 {
 	[Export(typeof(IPlugin))]
 	[Export(typeof(ITool))]
-	[Export(typeof(ISettings))]
-	[ExportMetadata("Guid", "45BF5FE6-7D81-4978-8B8A-84FD80BBEC10")]
+	[ExportMetadata("Guid", "CED9A7F7-CEB5-4FD0-9DDA-7B10AF5358A5")]
 	[ExportMetadata("Title", "BattleInfo")]
-	[ExportMetadata("Description", "戦闘情報")]
+	[ExportMetadata("Description", "戦闘海域・戦闘情報を表示します。")]
 	[ExportMetadata("Version", "1.0")]
-	[ExportMetadata("Author", "hiralius")]
-	public class BattleInfo : IPlugin, ITool, ISettings
+	[ExportMetadata("Author", "@hiralius")]
+	public class BattleInfo : IPlugin, ITool
 	{
 		private PortalViewModel portalViewModel;
 
-		string ITool.Name => "MasterView";
+		string ITool.Name => "BattileInfo";
 
 		object ITool.View => new Portal { DataContext = this.portalViewModel };
-
-		object ISettings.View => new Settings();
 
 		public void Initialize()
 		{
