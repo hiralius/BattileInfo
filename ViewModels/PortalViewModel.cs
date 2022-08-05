@@ -191,6 +191,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 		{
 			Master = new MasterData();
 
+			// 海域移動
 			_ = proxy.api_req_map_start
 				.TryParse<kcsapi_map_start>()
 				.Where(x => x.IsSuccess)
@@ -219,6 +220,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 					ChangeCellID(data.Data.api_no, data.Data.api_event_id, data.Data.api_event_kind);
 				});
 
+			// 戦闘開始
 			_ = proxy.api_req_sortie_battle
 				.TryParse<kcsapi_battle>()
 				.Where(x => x.IsSuccess)
@@ -233,10 +235,23 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 				{
 					UpdateEnemy(data.Data.api_ship_ke, data.Data.api_ship_lv);
 				});
+			_ = proxy.api_req_battle_sp_midnight
+				.TryParse<kcsapi_battle>()
+				.Where(x => x.IsSuccess)
+				.Subscribe(data =>
+				{
+					UpdateEnemy(data.Data.api_ship_ke, data.Data.api_ship_lv);
+				});
+			_ = proxy.api_req_sortie_airbattle
+				.TryParse<kcsapi_battle>()
+				.Where(x => x.IsSuccess)
+				.Subscribe(data =>
+				{
+					UpdateEnemy(data.Data.api_ship_ke, data.Data.api_ship_lv);
+				});
 
 
-
-
+			// 戦闘結果
 			_ = proxy.api_req_sortie_battleresult
 				.TryParse<kcsapi_battleresult>()
 				.Where(x => x.IsSuccess)
